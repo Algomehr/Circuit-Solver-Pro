@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Message, Role } from '../types';
-import MarkdownRenderer from './MarkdownRenderer';
+import { Message, Role } from '../types.ts';
+import MarkdownRenderer from './MarkdownRenderer.tsx';
 import { User, Cpu } from 'lucide-react';
 
 interface ChatBubbleProps {
@@ -12,12 +12,12 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message }) => {
   const isUser = message.role === Role.USER;
 
   return (
-    <div className={`flex w-full mb-6 ${isUser ? 'justify-start' : 'justify-start'}`}>
-      <div className={`flex max-w-[90%] md:max-w-[80%] ${isUser ? 'flex-row' : 'flex-row'}`}>
+    <div className={`flex w-full mb-6 justify-start`}>
+      <div className={`flex max-w-[90%] md:max-w-[80%] flex-row`}>
         <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${isUser ? 'bg-blue-600 ml-3' : 'bg-emerald-600 ml-3'}`}>
           {isUser ? <User size={20} /> : <Cpu size={20} />}
         </div>
-        <div className={`flex flex-col ${isUser ? 'items-start' : 'items-start'}`}>
+        <div className={`flex flex-col items-start`}>
           <div className={`px-5 py-4 rounded-2xl shadow-lg border ${
             isUser 
               ? 'bg-slate-800 border-slate-700' 

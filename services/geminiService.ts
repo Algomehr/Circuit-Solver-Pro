@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
-import { Message, Role } from "../types";
+import { Message, Role } from "../types.ts";
 
 const SYSTEM_INSTRUCTION = `شما یک استاد متخصص در مهندسی برق و مدارهای الکتریکی هستید.
 وظیفه شما حل دقیق و گام‌به‌گام مسائل مدار (KCL, KVL، تحلیل مش، گره، قضایای تونن و نورتن، فازورها و تحلیل گذرا) است.

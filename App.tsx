@@ -1,9 +1,9 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Message, Role, MessagePart } from './types';
-import { sendMessageStream } from './services/geminiService';
-import ChatBubble from './components/ChatBubble';
-import { Send, Image as ImageIcon, Loader2, Sparkles, Trash2, Camera } from 'lucide-react';
+import { Message, Role, MessagePart } from './types.ts';
+import { sendMessageStream } from './services/geminiService.ts';
+import ChatBubble from './components/ChatBubble.tsx';
+import { Send, Image as ImageIcon, Loader2, Sparkles, Trash2 } from 'lucide-react';
 
 const App: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
@@ -112,7 +112,6 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col h-screen max-w-5xl mx-auto border-x border-slate-800 bg-slate-950 shadow-2xl">
-      {/* Header */}
       <header className="flex items-center justify-between px-6 py-4 bg-slate-900/50 backdrop-blur-md border-b border-slate-800 sticky top-0 z-10">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-blue-500/10 rounded-lg">
@@ -126,17 +125,12 @@ const App: React.FC = () => {
         <button 
           onClick={clearChat}
           className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors"
-          title="پاک کردن گفتگو"
         >
           <Trash2 size={20} />
         </button>
       </header>
 
-      {/* Chat Area */}
-      <main 
-        ref={scrollRef}
-        className="flex-1 overflow-y-auto p-6 space-y-2"
-      >
+      <main ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-2">
         {messages.map((msg) => (
           <ChatBubble key={msg.id} message={msg} />
         ))}
@@ -147,7 +141,6 @@ const App: React.FC = () => {
         )}
       </main>
 
-      {/* Input Area */}
       <footer className="p-6 bg-slate-900/80 backdrop-blur-md border-t border-slate-800 sticky bottom-0">
         {selectedImage && (
           <div className="mb-4 relative inline-block">
@@ -158,7 +151,7 @@ const App: React.FC = () => {
             />
             <button 
               onClick={() => setSelectedImage(null)}
-              className="absolute -top-2 -left-2 bg-red-500 text-white rounded-full p-1 shadow-lg hover:bg-red-600"
+              className="absolute -top-2 -left-2 bg-red-500 text-white rounded-full p-1 shadow-lg"
             >
               <Trash2 size={12} />
             </button>
@@ -176,7 +169,6 @@ const App: React.FC = () => {
           <button 
             onClick={() => fileInputRef.current?.click()}
             className="p-3 text-slate-400 hover:text-blue-400 transition-colors"
-            title="آپلود تصویر مدار"
           >
             <ImageIcon size={24} />
           </button>
@@ -208,9 +200,6 @@ const App: React.FC = () => {
             <Send size={24} />
           </button>
         </div>
-        <p className="text-[10px] text-center text-slate-500 mt-2">
-          فرمول‌ها با فرمت لاتکس رندر می‌شوند. می‌توانید از $ برای فرمول‌های خطی استفاده کنید.
-        </p>
       </footer>
     </div>
   );
