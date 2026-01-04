@@ -14,6 +14,7 @@
         background-color: #0f172a;
         color: #f8fafc;
         margin: 0;
+        overflow-x: hidden;
       }
       .katex {
         direction: ltr !important;
@@ -46,24 +47,30 @@
         background: #64748b;
       }
     </style>
-<script type="importmap">
+    <script>
+      // تعریف یک شیء پایه برای جلوگیری از خطای نبود process در مرورگر
+      window.process = { env: { API_KEY: "" } };
+    </script>
+    <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@19.0.0",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
     "@google/genai": "https://esm.sh/@google/genai@1.34.0",
-    "react-markdown": "https://esm.sh/react-markdown@10.0.0",
-    "lucide-react": "https://esm.sh/lucide-react@0.474.0",
-    "remark-math": "https://esm.sh/remark-math@6.0.0",
-    "rehype-katex": "https://esm.sh/rehype-katex@7.0.1",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react-markdown": "https://esm.sh/react-markdown@10.0.0?bundle",
+    "lucide-react": "https://esm.sh/lucide-react@0.474.0?bundle",
+    "remark-math": "https://esm.sh/remark-math@6.0.0?bundle",
+    "rehype-katex": "https://esm.sh/rehype-katex@7.0.1?bundle",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
 </head>
 <body>
     <div id="root"></div>
+    <!-- اضافه کردن صریح فایل ورودی برای اطمینان از اجرا در تمام محیط‌ها -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
