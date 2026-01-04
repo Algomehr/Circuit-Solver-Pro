@@ -1,0 +1,7 @@
+{
+  "name": "Circuit Solver Pro",
+  "description": "An advanced AI-powered assistant specialized in solving electric circuit problems with LaTeX and Markdown support.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
